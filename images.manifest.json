@@ -1,0 +1,141 @@
+{
+  "hero": {
+    "source": "PXL_20261114_120512638.jpg",
+    "placeholder": false,
+    "widths": [
+      640,
+      960,
+      1280,
+      1920
+    ],
+    "width": 1920,
+    "height": 1080
+  },
+  "og": {
+    "source": "PXL_20261114_120512638.jpg",
+    "placeholder": false,
+    "widths": [
+      1200
+    ],
+    "width": 1200,
+    "height": 630
+  },
+  "now": {
+    "source": "PXL_20261114_121238975.jpg",
+    "placeholder": false,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "width": 1600,
+    "height": 900
+  },
+  "proposal": {
+    "source": "Теракотові_подушки_перед_переходом.png",
+    "placeholder": false,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "width": 1600,
+    "height": 900
+  },
+  "crossing-1": {
+    "source": "PXL_20261114_121408029.jpg",
+    "placeholder": false,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "width": 1600,
+    "height": 900
+  },
+  "crossing-2": {
+    "source": "PXL_20261114_121554741.jpg",
+    "placeholder": false,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "width": 1600,
+    "height": 900
+  },
+  "signs-portrait": {
+    "source": "PXL_20260323_123023168.jpg",
+    "placeholder": false,
+    "widths": [
+      400,
+      640,
+      900,
+      1200
+    ],
+    "width": 1200,
+    "height": 2133
+  },
+  "signs-street": {
+    "source": "PXL_20260322_110540738.jpg",
+    "placeholder": false,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "width": 1600,
+    "height": 900
+  },
+  "curb-1": {
+    "source": "PXL_20261114_120726176.jpg",
+    "placeholder": false,
+    "widths": [
+      400,
+      640,
+      900,
+      1200
+    ],
+    "width": 1200,
+    "height": 2133
+  },
+  "curb-2": {
+    "source": "PXL_20261114_120730461.jpg",
+    "placeholder": false,
+    "widths": [
+      400,
+      640,
+      900,
+      1200
+    ],
+    "width": 1200,
+    "height": 2133
+  },
+  "curb-3": {
+    "source": "PXL_20261114_121234036.jpg",
+    "placeholder": false,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "width": 1600,
+    "height": 900
+  },
+  "night": {
+    "source": "night.jpg",
+    "placeholder": true,
+    "widths": [
+      480,
+      1600
+    ],
+    "width": 1600,
+    "height": 900
+  }
+}
