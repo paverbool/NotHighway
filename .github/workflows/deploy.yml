@@ -1,10 +1,10 @@
-# Збирає сайт і публікує на GitHub Pages після кожного push у main.
+# Збирає сайт і публікує на GitHub Pages після кожного push у master.
 # Увімкніть один раз: Settings → Pages → Build and deployment → Source: GitHub Actions.
 name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 permissions:

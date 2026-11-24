@@ -71,7 +71,7 @@ npm run preview    # переглянути зібраний сайт локал
    ```
    `public/img/` і `images.manifest.json` мають бути в коміті: на GitHub оригіналів фото немає.
 2. У репозиторії відкрийте **Settings → Pages** і в **Source** виберіть **GitHub Actions**.
-3. Workflow `.github/workflows/deploy.yml` збере й опублікує сайт після кожного push у `main`. Адреса: `https://USERNAME.github.io/REPO/`.
+3. Workflow `.github/workflows/deploy.yml` збере й опублікує сайт після кожного push у `master`. Адреса: `https://USERNAME.github.io/REPO/`.
 4. Впишіть цю адресу в `SITE_URL`, закомітьте й запуште ще раз.
 
 Перевірити, як розгортається посилання: [opengraph.xyz](https://www.opengraph.xyz/) або бот `@WebpageBot` у Telegram (він також оновлює кеш прев'ю).

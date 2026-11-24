@@ -12,7 +12,7 @@ export const CONTACT_URL = '';
 // Повна адреса опублікованого сайту зі слешем у кінці,
 // наприклад https://username.github.io/repo-name/
 // Потрібна для картинки в Open Graph: месенджери не розуміють відносних посилань.
-export const SITE_URL = '';
+export const SITE_URL = 'https://paverbool.github.io/NotHighway/';
 
 // Дата оновлення в підвалі. Порожнє значення — дата збирання сайту.
 // Формат: 'YYYY-MM-DD'.
