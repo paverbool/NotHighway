@@ -30,7 +30,8 @@ function renderPicture(attrString, manifest) {
 
   const img = manifest[attrs.name];
   if (!img) throw new Error(`Немає зображення "${attrs.name}" у images.manifest.json. Запустіть npm run images.`);
-  if (!attrs.alt) throw new Error(`Зображенню "${attrs.name}" бракує alt.`);
+  // alt="" дозволено явно — для декоративних кадрів.
+  if (attrs.alt === undefined || attrs.alt === true) throw new Error(`Зображенню "${attrs.name}" бракує alt.`);
 
   const sizes = attrs.sizes || '100vw';
   const srcset = (ext) => img.widths.map((w) => `/img/${attrs.name}-${w}.${ext} ${w}w`).join(', ');

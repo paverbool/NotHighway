@@ -137,5 +137,49 @@
     ],
     "width": 1600,
     "height": 900
+  },
+  "traffic-light-green": {
+    "source": "Traffic Light Green.I02.2k.png",
+    "placeholder": false,
+    "widths": [
+      160,
+      320,
+      480
+    ],
+    "width": 480,
+    "height": 970
+  },
+  "traffic-light-yellow": {
+    "source": "Traffic Light Yellow.I02.2k.png",
+    "placeholder": false,
+    "widths": [
+      160,
+      320,
+      480
+    ],
+    "width": 480,
+    "height": 970
+  },
+  "traffic-light-red": {
+    "source": "Traffic Light Red.I02.2k.png",
+    "placeholder": false,
+    "widths": [
+      160,
+      320,
+      480
+    ],
+    "width": 480,
+    "height": 970
+  },
+  "cushion": {
+    "source": "4d00b0d7b5fd9de115036338e3724256156005c5baf40ff51a327f1c34f2975b.jpg",
+    "placeholder": false,
+    "widths": [
+      400,
+      640,
+      905
+    ],
+    "width": 905,
+    "height": 460
   }
 }

@@ -15,6 +15,7 @@ const MANIFEST = path.join(root, 'images.manifest.json');
 
 // name — латинська назва копії; widths — ширини для srcset;
 // fallback — розмір заглушки, якщо оригіналу немає.
+// cover — білі прямокутники поверх оригіналу (до обрізання), extract — обрізання.
 const IMAGES = [
   { src: 'PXL_20261114_120512638.jpg', name: 'hero', widths: [640, 960, 1280, 1920], fallback: [4032, 2268] },
   { src: 'PXL_20261114_121238975.jpg', name: 'now', widths: [480, 800, 1200, 1600], fallback: [4032, 2268] },
@@ -27,6 +28,23 @@ const IMAGES = [
   { src: 'PXL_20261114_120730461.jpg', name: 'curb-2', widths: [400, 640, 900, 1200], fallback: [2268, 4032] },
   { src: 'PXL_20261114_121234036.jpg', name: 'curb-3', widths: [480, 800, 1200, 1600], fallback: [4032, 2268] },
   { src: 'night.jpg', name: 'night', widths: [480, 800, 1200, 1600], fallback: [1920, 1080] },
+  // Світлофор: три кадри одного рендеру з прозорим тлом, обрізані однаково.
+  ...['green', 'yellow', 'red'].map((c) => ({
+    src: `Traffic Light ${c[0].toUpperCase()}${c.slice(1)}.I02.2k.png`,
+    name: `traffic-light-${c}`,
+    widths: [160, 320, 480],
+    extract: { left: 760, top: 100, width: 940, height: 1900 },
+    fallback: [940, 1900],
+  })),
+  // Берлінська подушка: фото товару; вставку з текстурою внизу праворуч заливаємо білим.
+  {
+    src: '4d00b0d7b5fd9de115036338e3724256156005c5baf40ff51a327f1c34f2975b.jpg',
+    name: 'cushion',
+    widths: [400, 640, 905],
+    cover: [{ left: 640, top: 495, width: 560, height: 305 }],
+    extract: { left: 120, top: 60, width: 905, height: 460 },
+    fallback: [905, 460],
+  },
 ];
 
 // Вотермарк «Харків для Людей» (лого v3_4_1 у колі, 1024 px) з брендбука.
@@ -64,7 +82,16 @@ async function loadBase(img) {
   const file = await findSource(img);
   if (file) {
     // rotate() без аргументів враховує EXIF-орієнтацію телефона.
-    const buf = await sharp(file).rotate().toBuffer();
+    let buf = await sharp(file).rotate().toBuffer();
+    if (img.cover) {
+      const rects = img.cover.map(({ left, top, width, height }) => ({
+        input: { create: { width, height, channels: 4, background: '#ffffff' } },
+        left,
+        top,
+      }));
+      buf = await sharp(buf).composite(rects).toBuffer();
+    }
+    if (img.extract) buf = await sharp(buf).extract(img.extract).toBuffer();
     return { buf, placeholder: false };
   }
   const [w, h] = img.fallback;

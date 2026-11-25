@@ -290,6 +290,90 @@ figcaption {
 .tag--before { background: var(--b-brick); }
 .tag--after { background: var(--b-park); }
 
+/* Два світлі розділи поспіль розділяємо лінією */
+.section:not(.section--tint) + .section:not(.section--tint) { border-top: 1px solid var(--line); }
+
+/* Чому не світлофор: аргументи з виділеним початком */
+.reasons {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+.reasons > li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+.reasons > li + li { margin-top: 1.25rem; }
+
+/* Світлофор проти подушки. Картки білі в обох темах: фото подушки на білому тлі. */
+.versus {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+@media (min-width: 40rem) { .versus { gap: 1rem; } }
+.versus__media {
+  display: grid;
+  grid-template: 100% / 100%;
+  height: clamp(13rem, 50vw, 18rem);
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #ffffff;
+}
+.versus__media > picture {
+  grid-area: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+}
+.versus__media img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.versus__media--lights img { height: 100%; }
+.versus figcaption {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;
+  font-size: 0.9375rem;
+}
+/* Світлофор перемикається: зелений → жовтий → червоний. Зелений лежить знизу. */
+@media (prefers-reduced-motion: no-preference) {
+  .versus__light--yellow { animation: tl-yellow 9s infinite; }
+  .versus__light--red { animation: tl-red 9s infinite; }
+}
+.versus__light--yellow,
+.versus__light--red { opacity: 0; }
+@keyframes tl-yellow {
+  0%, 32% { opacity: 0; }
+  34%, 65% { opacity: 1; }
+  67%, 100% { opacity: 0; }
+}
+@keyframes tl-red {
+  0%, 65% { opacity: 0; }
+  67%, 98% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.reasons > li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  bottom: 0.3em;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--route);
+}
+.reasons strong { color: var(--heading); font-weight: 800; }
+
 /* Як допомогти: лінія-маршрут із зупинками */
 .actions {
   list-style: none;
